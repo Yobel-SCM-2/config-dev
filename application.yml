@@ -1,0 +1,39 @@
+spring:
+  application:
+    environment: development
+
+logging:
+  level:
+    root: INFO
+    com.uguimar: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.data.r2dbc: DEBUG
+    org.springframework.cloud: INFO
+    reactor.netty: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
+
+cors:
+  allowed-origins: "*"
+  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+  allowed-headers: "*"
+  max-age: 3600
+
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
