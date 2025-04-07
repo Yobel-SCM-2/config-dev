@@ -4,36 +4,36 @@ spring:
 
 logging:
   level:
-    root: INFO
-    com.uguimar: DEBUG
-    org.springframework.web: DEBUG
-    org.springframework.data.r2dbc: DEBUG
-    org.springframework.cloud: INFO
-    reactor.netty: INFO
+    root: ${LOG_LEVEL_ROOT:INFO}
+    com.uguimar: ${LOG_LEVEL_APP:DEBUG}
+    org.springframework.web: ${LOG_LEVEL_SPRING_WEB:DEBUG}
+    org.springframework.data.r2dbc: ${LOG_LEVEL_R2DBC:DEBUG}
+    org.springframework.cloud: ${LOG_LEVEL_SPRING_CLOUD:INFO}
+    reactor.netty: ${LOG_LEVEL_REACTOR:INFO}
 
 management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include: ${ACTUATOR_ENDPOINTS:"*"}
   endpoint:
     health:
-      show-details: always
+      show-details: ${HEALTH_DETAILS:always}
   metrics:
     export:
       prometheus:
-        enabled: true
+        enabled: ${PROMETHEUS_ENABLED:true}
   tracing:
     sampling:
-      probability: 1.0
+      probability: ${TRACING_PROBABILITY:1.0}
 
 cors:
-  allowed-origins: "*"
-  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
-  allowed-headers: "*"
-  max-age: 3600
+  allowed-origins: ${CORS_ORIGINS:"*"}
+  allowed-methods: ${CORS_METHODS:GET,POST,PUT,DELETE,OPTIONS}
+  allowed-headers: ${CORS_HEADERS:"*"}
+  max-age: ${CORS_MAX_AGE:3600}
 
 server:
   error:
-    include-message: always
-    include-binding-errors: always
+    include-message: ${ERROR_INCLUDE_MESSAGE:always}
+    include-binding-errors: ${ERROR_INCLUDE_BINDING:always}
