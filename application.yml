@@ -5,7 +5,7 @@ spring:
 logging:
   level:
     root: ${LOG_LEVEL_ROOT:INFO}
-    com.uguimar: ${LOG_LEVEL_APP:DEBUG}
+    com.yobel: ${LOG_LEVEL_APP:DEBUG}
     org.springframework.web: ${LOG_LEVEL_SPRING_WEB:DEBUG}
     org.springframework.data.r2dbc: ${LOG_LEVEL_R2DBC:DEBUG}
     org.springframework.cloud: ${LOG_LEVEL_SPRING_CLOUD:INFO}
