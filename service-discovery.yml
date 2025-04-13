@@ -1,14 +1,14 @@
 server:
-  port: ${EUREKA_PORT:8761}
+  port: 8761
 
 eureka:
   instance:
-    hostname: ${EUREKA_HOSTNAME:localhost}
+    hostname: localhost
   client:
     register-with-eureka: false
     fetch-registry: false
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
-    wait-time-in-ms-when-sync-empty: ${EUREKA_WAIT_TIME:0}
-    enable-self-preservation: ${EUREKA_SELF_PRESERVATION:false}
+    wait-time-in-ms-when-sync-empty: 0
+    enable-self-preservation: false
